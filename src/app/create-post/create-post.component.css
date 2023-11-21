@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* styles.css (ou styles.scss) */
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1.25rem; /* La valeur 5 dans m-5 équivaut à 1.25rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    color: #333; /* Remplace text-gray-800 par la couleur de texte que tu préfères */
+    background-color: #fff; /* Remplace bg-white par la couleur de fond que tu préfères */
+  }
+  .editor {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%; /* 10/12 en pourcentage équivaut à 90% */
+    display: flex;
+    flex-direction: column;
+    color: #333; /* Remplace text-gray-800 par la couleur de texte que tu préfères */
+    border: 1px solid #ccc; /* Remplace border-gray-300 par la couleur de bordure que tu préfères */
+    padding: 1rem; /* La valeur 4 dans p-4 équivaut à 1rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* La valeur shadow-lg de Tailwind CSS */
+    max-width: 36rem; /* La valeur max-w-2xl équivaut à 36rem avec la taille de base de 1rem dans Tailwind CSS */
+  }  
+  .title {
+    background-color: #f7f7f7; /* Remplace bg-gray-100 par la couleur de fond que tu préfères */
+    border: 1px solid #ccc; /* Remplace border-gray-300 par la couleur de bordure que tu préfères */
+    padding: 0.5rem; /* La valeur 2 dans p-2 équivaut à 0.5rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    margin-bottom: 1rem; /* La valeur mb-4 équivaut à 1rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    outline: none;
+  }
+
+  /* styles.css (ou styles.scss) */
+.custom-button {
+    width: 1.5rem; /* La valeur w-6 équivaut à 1.5rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    height: 1.5rem; /* La valeur h-6 équivaut à 1.5rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    margin: 0.5rem; /* La valeur m-2 équivaut à 0.5rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    color: #fff; /* La couleur du texte en texte blanc */
+    font-size: 1.25rem; /* La valeur text-lg équivaut à 1.25rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    background-color: #e53e3e; /* La couleur de fond en bg-red-500 */
+    cursor: pointer;
+    border-radius: 999px; /* Utilise une valeur élevée pour obtenir une forme de cercle avec rounded-full */
+    padding: 0.25rem; /* La valeur p-1 équivaut à 0.25rem avec la taille de base de 0.25rem dans Tailwind CSS */
+    transition: color 0.3s, background-color 0.3s;
+  }
+  
+  .custom-button:hover {
+    color: #e53e3e; /* La couleur du texte en hover:text-red-700 */
+    background-color: #f7f7f7; /* La couleur de fond en hover:bg-gray-100 */
+  }
+  

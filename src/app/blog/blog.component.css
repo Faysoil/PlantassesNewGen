@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* styles.css (ou styles.scss) */
+.photoPlante {
+    height: 10rem; /* Remplace 40rem par la valeur que tu veux pour la hauteur */
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
