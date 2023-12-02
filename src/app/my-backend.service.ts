@@ -19,5 +19,9 @@ export class MyBackendService {
     return this.http.post(`${this.apiUrl}/users`, userData);
   }
 
+  getPostById(postId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/posts/${postId}`);
+  }
+
   // Ajoutez d'autres méthodes en fonction de vos besoins
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'createPost', component: CreatePostComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'connexion', component: ConnexionComponent},
-  { path: 'solopost', component: SoloPostComponent}
+  { path: 'solopost/:id', component: SoloPostComponent}
 ];
 
 @NgModule({

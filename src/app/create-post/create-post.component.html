@@ -8,8 +8,12 @@
     <div class="bg-white shadow p-4 py-8" x-data="{ images: [] }">
         <div class="heading">New Post</div>
         <div class="editor">
-            <input class="title" spellcheck="false" placeholder="Title" type="text">
-            <textarea class="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none" spellcheck="false" placeholder="Describe everything about this post here"></textarea>
+            <input class="title" spellcheck="false" placeholder="Title" id="title" [(ngModel)]="postForm.title" name="title" required>
+            <textarea class="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"  id="description" [(ngModel)]="postForm.description" name="description"></textarea>
+
+            
+  <label for="image">Image:</label>
+  <input type="text" id="image" [(ngModel)]="postForm.image" name="image">
 
             <!-- icons -->
             <div class="icons flex text-gray-500 m-2">
@@ -24,7 +28,7 @@
 
             <!-- Buttons -->
             <div class="buttons flex justify-end">
-                <div class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500">Post</div>
+                <div class="btn border border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500" type="submit" (click)="createPost()">Post</div>
             </div>
         </div>
     </div>
