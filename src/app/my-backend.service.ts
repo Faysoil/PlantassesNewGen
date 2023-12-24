@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class MyBackendService {
   private apiUrl = 'http://localhost:3000'; 
-  private endpoint = '/posts';
+  private blog = '/posts';
 
   constructor(private http: HttpClient) {}
 
   getSomeData(): Observable<any> {
-    return this.http.get<any[]>(`${this.apiUrl}${this.endpoint}`);
+    return this.http.get<any[]>(`${this.apiUrl}${this.blog}`);
   }
   createUser(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/users`, userData);
@@ -21,6 +21,10 @@ export class MyBackendService {
 
   getPostById(postId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/posts/${postId}`);
+  }
+
+  getAllUsers(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/users`)
   }
 
   // Ajoutez d'autres méthodes en fonction de vos besoins

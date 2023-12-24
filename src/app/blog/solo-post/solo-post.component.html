@@ -1,9 +1,4 @@
-<div *ngIf="post">
-    <!-- Affichez d'autres détails du post selon vos besoins -->
-  </div>
-
-  <!-- This is an example component -->
-<div class="bg-white overflow-hidden shadow-none">
+<div class="bg-white overflow-hidden shadow-none" *ngIf="post">
   <div class="grid grid-cols-3 min-w-full">
 
       <div class="col-span-2 w-full">
@@ -15,11 +10,11 @@
       <div class="col-span-1 relative pl-4">
           <header class="border-b border-grey-400">
               <a href="#" class="block cursor-pointer py-4 flex items-center text-sm outline-none focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                  <p class="block ml-2 font-bold">{{ userId }}</p>
+                  <!-- <p class="block ml-2 font-bold"> {{ post.userId.name }} </p> -->
               </a>
           </header>
           <h2>{{ post.description }}</h2>
-          
+          <p>ferezrf</p>
 
           <div class="absolute bottom-0 left-0 right-0 pl-4">
               <div class="pt-4">
@@ -30,9 +25,11 @@
               </div>
 
               <div class="pt-4 pb-1 pr-3">
+                
+                    <app-comment></app-comment>
                   <div class="flex items-start">
-                      <textarea class="w-full resize-none outline-none appearance-none" aria-label="Agrega un comentario..." placeholder="Agrega un comentario..."  autocomplete="off" autocorrect="off" style="height: 36px;"></textarea>
-                      <button class="mb-2 focus:outline-none border-none bg-transparent text-blue-600">Publicar</button>
+                      <textarea class="w-full resize-none outline-none appearance-none" [(ngModel)]="newCommentContent" aria-label="Agrega un comentario..." placeholder="Agrega un comentario..."></textarea>
+                      <button class="mb-2 focus:outline-none border-none bg-transparent text-blue-600" (click)="publishComment()">Publicar</button>
                   </div>
               </div>
           </div>

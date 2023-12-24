@@ -7,7 +7,6 @@ import { MyBackendService } from '../my-backend.service';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent  implements OnInit  {
-
   posts: any[] | undefined;
 
   constructor(private backendService: MyBackendService) {}
@@ -16,7 +15,6 @@ export class BlogComponent  implements OnInit  {
     this.backendService.getSomeData().subscribe((data) => {
       this.posts = data;
     });
-
 
   }
     truncateDescription(description: string, maxLength: number): string {
