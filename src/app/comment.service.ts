@@ -12,20 +12,19 @@ export class CommentService {
 
   constructor(private http: HttpClient) {}
 
-
-  getComment(commentId: string): Observable<Comment> {
-    return this.http.get<Comment>(`${this.apiUrl}/${commentId}`);
-  }
-
-  deleteComment(commentId: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${commentId}`);
-  }
-
   getCommentsForPost(postId: string): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.apiUrl}/post/${postId}`);
   }
 
   publishComment(commentData: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, commentData);
+    return this.http.post<any>(`${this.apiUrl}`, commentData);
+  }
+
+  getCommentsByPost(postId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/post/${postId}`);
+  }
+
+  deleteComment(commentId: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${commentId}`);
   }
 }

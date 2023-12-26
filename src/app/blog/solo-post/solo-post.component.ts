@@ -15,8 +15,11 @@ export class SoloPostComponent implements OnInit {
   post: any;
   newCommentContent: string = '';
   _id: number | null = null;
+  comments: any[] | undefined;
 
-  constructor(private route: ActivatedRoute,private backendService: MyBackendService, private sharedService: SharedService,
+  constructor(    private route: ActivatedRoute,
+    private backendService: MyBackendService,
+    private sharedService: SharedService,
     private commentService: CommentService) {}
 
   ngOnInit(): void {
@@ -28,6 +31,9 @@ export class SoloPostComponent implements OnInit {
         this.backendService.getPostById(postId).subscribe(data => {
           this.post = data;
         });
+        this.commentService.getCommentsByPost(postId).subscribe(comments => {
+          this.comments = comments;
+      });
       }
     })
     this.sharedService.userName$.subscribe((userName) => {
@@ -41,25 +47,44 @@ export class SoloPostComponent implements OnInit {
   
   }
 
+ 
+  loadComments() {
+    const postId = this.route.snapshot.paramMap.get('id');
+    this.commentService.getCommentsByPost(postId!).subscribe(data => {
+      this.comments = data;
+    });
+  }
+
   publishComment() {
-    const postId = this.route.snapshot.paramMap.get('id'); // Supposons que vous avez un paramètre d'itinéraire 'id' pour l'ID du post
+    const postId = this.route.snapshot.paramMap.get('id');
     const commentData = {
       content: this.newCommentContent,
-      postId: postId, // Utilisez l'ID du post actuel
-      _id:2
+      userId: this.userId,
+      postId: postId
     };
 
     this.commentService.publishComment(commentData).subscribe(
       (response: any) => {
-        // Le commentaire a été publié avec succès, vous pouvez mettre à jour l'affichage des commentaires ici si nécessaire
         console.log('Comment published successfully:', response);
+        this.loadComments(); // Rechargez les commentaires après la publication
       },
       (error: any) => {
         console.error('Error publishing comment:', error);
       }
     );
 
-    // Effacez le champ de texte après la publication
     this.newCommentContent = '';
+  }
+
+  deleteComment(commentId: string) {
+    this.commentService.deleteComment(commentId).subscribe(
+      (response: any) => {
+        console.log('Comment deleted successfully:', response);
+        this.loadComments(); // Rechargez les commentaires après la suppression
+      },
+      (error: any) => {
+        console.error('Error deleting comment:', error);
+      }
+    );
   }
 }
