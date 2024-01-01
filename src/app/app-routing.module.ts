@@ -6,6 +6,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { SoloPostComponent } from './blog/solo-post/solo-post.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
+import { ProfilComponent } from './profil/profil.component';
 
 const routes: Routes = [
   { path: 'blog', component: BlogComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'inscription', component: InscriptionComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'solopost/:id', component: SoloPostComponent},
-  { path: 'messagerie', component: MessagerieComponent}
+  { path: 'messagerie', component: MessagerieComponent},
+  { path: 'profil', component: ProfilComponent}
 ];
 
 @NgModule({

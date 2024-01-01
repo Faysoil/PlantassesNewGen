@@ -10,4 +10,8 @@
     object-fit: cover;
     object-position: center;
   }
-  
+
+.cardTruc {
+    margin-bottom: 10%;
+    border: 2px solid #000000; /* Couleur et épaisseur de la bordure */
+}

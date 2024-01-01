@@ -27,5 +27,14 @@ export class MyBackendService {
     return this.http.get(`${this.apiUrl}/users`)
   }
 
-  // Ajoutez d'autres méthodes en fonction de vos besoins
+// Dans votre service Angular
+toggleSelectPost(postId: string, userId: string): Observable<any> {
+  const body = { userId };
+  return this.http.put<any>(`${this.apiUrl}/posts/toggleSelect/${postId}`, body);
+}
+
+getSelectedPosts(userId: string): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl}/posts/selected/${userId}`);
+}
+
 }

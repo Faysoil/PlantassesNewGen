@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
   title = 'plantassesNewGen';
   userName: string | null = null;
+  
   constructor(private authService: AuthService) {}
 
   get isLoggedIn(): boolean {

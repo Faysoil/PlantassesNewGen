@@ -1,20 +1,24 @@
 <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <span>My App</span>
-        <span class="example-spacer"></span>
-        <ng-container *ngIf="isLoggedIn">
-          <!-- Affiche le nom de l'utilisateur si authentifié -->
-          <span>Bienvenue {{ userName }}</span>
-          <button mat-icon-button (click)="logout()">Déconnexion</button>
-        </ng-container>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </mat-toolbar-row>
-  </mat-toolbar>
+  <mat-toolbar-row class="spaced-buttons">
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <ng-container *ngIf="isLoggedIn">
+      <span>Bienvenue {{ userName }}</span>
+    </ng-container>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Ajoutez ces boutons pour chaque route -->
+    <button mat-button routerLink="/blog">Blog</button>
+    <button mat-button routerLink="/createPost">Créer un Post</button>
+    <button mat-button routerLink="/profil">Profil</button>
+    <button mat-button routerLink="/connexion" class="deco" (click)="logout()">Déconnexion</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
 
 <footer class="w-full text-center border-t border-grey p-4 pin-b bg-blue-dark">
-    <p class="font-bold font-sans text-white">This is our footer</p>
+  <p class="font-bold font-sans text-white">This is our footer</p>
 </footer>

@@ -1,13 +1,8 @@
-<div class='w-full gap-2 grid  grid-cols-3' *ngFor="let post of posts">
+<div class='w-full gap-2 grid grid-cols-3' *ngFor="let post of posts">
   <div></div>
-  <div key={content} class="group relative rounded-lg overflow-hidden bg-white  hover:shadow-2xl ">
-      
+  <a class="group relative rounded-lg overflow-hidden bg-white hover:shadow-2xl cardTruc">
     <div class="h-40">
-      <img
-        src='{{ post.image }}'
-        alt='City'
-        class="photoPlante"
-      />
+      <img [routerLink]="['/solopost', post.postId]" src='{{ post.image }}' alt='City' class="photoPlante" />
     </div>
     <div class="h-1/2 p-4 ">
       <h3 class="mb-2 text-base font-semibold text-blue-800">
@@ -17,9 +12,10 @@
       </h3>
       <p class="text-sm font-bold text-orange-500">perspiciatis</p>
       <div class='flex flex-row justify-between text-xs mt-2'> 
-      <p>{{ post.adresse }}</p>{{ truncateDescription(post.description, 30) }}
+        <p>{{ post.adresse }}</p>{{ truncateDescription(post.description, 30) }}
+      </div>
+      <input type="checkbox" [(ngModel)]="post.selectedBy" (change)="toggleSelectPost(post._id)" />
     </div>
-  </div>
-  
+  </a>
   <div></div>
-  </div>
+</div>

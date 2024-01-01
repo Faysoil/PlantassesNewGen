@@ -21,6 +21,7 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InscriptionComponent,
     ConnexionComponent,
     CommentComponent,
-    MessagerieComponent
+    MessagerieComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
