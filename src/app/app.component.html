@@ -9,11 +9,13 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <!-- Ajoutez ces boutons pour chaque route -->
+    <!-- Ajoutez ces boutons pour chaque route -->    
+    <ng-container *ngIf="isLoggedIn">
     <button mat-button routerLink="/blog">Blog</button>
     <button mat-button routerLink="/createPost">Créer un Post</button>
     <button mat-button routerLink="/profil">Profil</button>
     <button mat-button routerLink="/connexion" class="deco" (click)="logout()">Déconnexion</button>
+    </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>
 
